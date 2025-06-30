@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div
       style={{backgroundImage: `url(${bgImage})`}} 
-      className="bg-center bg-contain min-h-screen">
+      className="bg-center w-full border border-b bg-contain min-h-screen">
       <Routes>
         <Route>
           {/* Base Routing */}
