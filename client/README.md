@@ -1,12 +1,28 @@
-# React + Vite
+# Documenting The Process
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+After designing in Figma:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Created parent folders:
+    - assets (stores all images) + assets.js (VERY IMPORTANT, centralizes icons + sample array of user daya)
+    - components (stores all components) => chat container, Right sidebar, left sidebar
+    - pages (minimal code, only component implementation) => Home page, Login page, and Profile Page
 
-## Expanding the ESLint configuration
+2. Designed Sidebar component:
+    - set global parameters to selectedUser and setSelectedUser
+    - hides the component if a user is already selected for mobile
+    - add navigation to profile and page (through logout)
+    - add search bar for users
+    - Create User List sub-component
+        -> Loop through dummy user daya
+        -> Each user item is clickable (highlights selected user, and opens empty chat container if selected)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Designed Chat Container Component:
+    - Same global variables as parameters
+    - Display different containers based on selectedUser being true/false
+    - If no user selected, empty container with logo + title
+    - If user is selected, Show chat page + right sidebar
+    - The above logic to change chat container and hide right sidebar is done 
+    using the "grid cols" grid layout
+
+4. Designed Right sidebar component
