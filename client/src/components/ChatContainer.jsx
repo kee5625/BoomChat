@@ -10,7 +10,7 @@ const ChatContainer = ({selectedUser, setSelectedUser}) => {
     if(scrollEnd.current){
       scrollEnd.current.scrollIntoView({behavior: 'smooth'})
     }
-  }, [])
+  }, [selectedUser, messagesDummyData])
 
   return selectedUser ? (
     <div className='h-full overflow-scroll relative backdrop-blur-lg'>
@@ -40,7 +40,7 @@ const ChatContainer = ({selectedUser, setSelectedUser}) => {
             </div>
           </div>
         ))}
-        <div ref={scrollEnd}></div>
+        <div ref={scrollEnd} className='h-1' />
       </div>
 
       {/* ------bottom area ------ */}
@@ -54,7 +54,6 @@ const ChatContainer = ({selectedUser, setSelectedUser}) => {
         </div>
         <img src={assets.send_button} className='w-7 cursor-pointer' />
       </div>
-
 
     </div>
   ) : (
