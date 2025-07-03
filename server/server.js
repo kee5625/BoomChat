@@ -3,7 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import http from "http";
 import { connectDB } from "./lib/db.js";
-import {userRouter} from "./routes/userRoutes.js"
+import userRouter from "./routes/userRoutes.js"
 import messageRouter from "./routes/messageRoutes.js";
 import { Server } from "socket.io";
 
@@ -43,8 +43,8 @@ app.use(cors()); //enable cors
 
 //Route Setup
 app.use("/api/status", (req, res)=>  res.send("Server is live"));   //route handler (when user visits /api/status --- something happens)
-app.use("/api/auth", userRouter);   //authentication page
-app.use("/api/messages", messageRouter); //messages route endpoint
+app.use("/api/auth", userRouter);   //delegating to userRouter for all auth related stuff
+app.use("/api/messages", messageRouter); //messages route redirected
 
 // Connect to mongo db
 await connectDB();

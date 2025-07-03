@@ -54,8 +54,11 @@ export const AuthProvider = ({ children }) => {
         setAuthUser(null);
         setOnlineUsers([]);
         axios.defaults.headers.common["token"] = null;
+        if (socket){
+            socket.disconnect();
+            setSocket(null);
+        }
         toast.success("Logged out successfully");
-        socket.disconenct();
     }
 
 
@@ -81,7 +84,7 @@ export const AuthProvider = ({ children }) => {
             }
         });
         newSocket.connect();
-        netSocket(newSocket);
+        setSocket(newSocket);
 
         newSocket.on("getOnlineUsers", (userIds)=> {
             setOnlineUsers(userIds);

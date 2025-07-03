@@ -28,8 +28,6 @@ export const getUsersForSidebar = async (req, res) => {
     }
 }
 
-
-
 // Get all messages for selected user
 export const getMessages = async(req, res) => {
     try{
